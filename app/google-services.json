@@ -1,0 +1,113 @@
+{
+  "project_info": {
+    "project_number": "766163372486",
+    "project_id": "aerox-8c69c",
+    "storage_bucket": "aerox-8c69c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766163372486:android:891f8d365461cb2b9a4ac7",
+        "android_client_info": {
+          "package_name": "com.example.aerox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766163372486-99t6405usvlnnskfr6bhek9j09hej1fk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aerox",
+            "certificate_hash": "72678e8a3cac496ae014c6d09b26b895ae0536cc"
+          }
+        },
+        {
+          "client_id": "766163372486-43gorj12lnspl6oq58k9eauejv8a4ogq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaahD13v94-ui-0oIkiwGa5LI9dfc_pOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766163372486-43gorj12lnspl6oq58k9eauejv8a4ogq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766163372486:android:22db8a4e68dec3959a4ac7",
+        "android_client_info": {
+          "package_name": "com.example.aexox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766163372486-43gorj12lnspl6oq58k9eauejv8a4ogq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaahD13v94-ui-0oIkiwGa5LI9dfc_pOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766163372486-43gorj12lnspl6oq58k9eauejv8a4ogq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766163372486:android:3239ecf8c6551e409a4ac7",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766163372486-67hvdbecc8jd1t1uqq0t1qu3om0e6mrd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "72678e8a3cac496ae014c6d09b26b895ae0536cc"
+          }
+        },
+        {
+          "client_id": "766163372486-43gorj12lnspl6oq58k9eauejv8a4ogq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaahD13v94-ui-0oIkiwGa5LI9dfc_pOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766163372486-43gorj12lnspl6oq58k9eauejv8a4ogq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
