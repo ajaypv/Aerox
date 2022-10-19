@@ -10,14 +10,35 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/i"
+        android:icon="@drawable/aerox1"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/i"
+        android:roundIcon="@drawable/aerox1"
         android:supportsRtl="true"
         android:theme="@style/Theme.Aexox"
         tools:targetApi="31">
         <activity
+            android:name=".otp"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PdfView"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PdfPrint"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PdfPage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

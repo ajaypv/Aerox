@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,7 +29,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogOut ,b1;
+    Button btnLogOut ,b1,pdfpage;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     TextView selectpdf, userid;
     EditText e1;
@@ -51,17 +50,23 @@ public class MainActivity extends AppCompatActivity {
             mAuth.signOut();
             startActivity(new Intent(MainActivity.this, SignUp.class));
         });
-
+        pdfpage = findViewById(R.id.pdfPage);
         e1 = findViewById(R.id.s1);
         b1 = findViewById(R.id.b1);
         selectpdf = findViewById(R.id.selectpdf);
         userid = findViewById(R.id.userid);
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        FirebaseUser user = mAuth.getCurrentUser();
 
-        assert user != null;
-        databaseReference = FirebaseDatabase.getInstance().getReference("uploadPDF/"+user.getUid());
+        pdfpage.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, PdfPage.class));
+
+
+        });
+
+
+
+
         b1.setEnabled(false);
 
 
@@ -119,9 +124,13 @@ public class MainActivity extends AppCompatActivity {
                         while(!uriTask.isComplete());
                         Uri uri = uriTask.getResult();
                         putPf putPf = new putPf(e1.getText().toString(),uri.toString());
+
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        databaseReference = FirebaseDatabase.getInstance().getReference("uploadPDF/"+user.getUid());
                         databaseReference.child(Objects.requireNonNull(databaseReference.push().getKey())).setValue(putPf);
                         Toast.makeText(MainActivity.this,"file upload",Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();
+                        startActivity(new Intent(MainActivity.this,PdfPage.class));
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override

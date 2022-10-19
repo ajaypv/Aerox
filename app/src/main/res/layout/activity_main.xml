@@ -8,18 +8,18 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="409dp"
-        android:layout_height="91dp"
+        android:layout_width="320dp"
+        android:layout_height="98dp"
         android:text="@string/welcome_you_are_logged_in"
         android:textColor="#03A9F4"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.674"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.139" />
 
     <Button
         android:id="@+id/btnLogout"
@@ -52,10 +52,10 @@
         android:text="@string/upload_file"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663" />
+        app:layout_constraintVertical_bias="0.676" />
 
     <TextView
         android:id="@+id/userid"
@@ -71,12 +71,12 @@
 
     <TextView
         android:id="@+id/selectpdf"
-        android:layout_width="403dp"
-        android:layout_height="55dp"
+        android:layout_width="217dp"
+        android:layout_height="36dp"
         android:background="#D7C5F8"
         android:text="select pdf from device"
         android:textColor="#0019A6"
-        android:textSize="34sp"
+        android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

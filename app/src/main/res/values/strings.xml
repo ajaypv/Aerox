@@ -16,4 +16,5 @@
     <string name="todo1">TODO</string>
     <string name="upload_file">Upload file</string>
     <string name="pdf_files">Pdf Files</string>
+    <string name="pdf_name">PDF Name :</string>
 </resources>

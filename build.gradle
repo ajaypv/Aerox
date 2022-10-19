@@ -2,7 +2,11 @@
 buildscript {
     repositories {
         google()  // Google's Maven repository
-        mavenCentral()  // Maven Central repository
+        mavenCentral()
+        maven {
+            url  "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-snapshots"
+        }
+       //aven Central repository
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.14'
