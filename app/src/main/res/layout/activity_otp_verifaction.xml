@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".otpVerifaction">
+
+<!--    <com.google.android.material.textfield.TextInputEditText-->
+<!--        android:id="@+id/otpnum"-->
+<!--        android:layout_width="357dp"-->
+<!--        android:layout_height="83dp"-->
+<!--        android:hint="Enter otp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.759" />-->
+
+
+    <in.aabhasjindal.otptextview.OtpTextView
+        android:id="@+id/otpnum"
+        android:layout_width="399dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="204dp"
+        android:background="#16FFFFFF"
+
+
+        android:paddingLeft="20dp"
+        android:textColor="#0BE6D2"
+        app:bar_enabled="true"
+        app:bar_height="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupp"
+        app:layout_constraintVertical_bias="0.317"
+        app:length="4"
+        app:otp_text_size="34dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/signupp"
+        android:layout_width="320dp"
+        android:layout_height="238dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/security" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

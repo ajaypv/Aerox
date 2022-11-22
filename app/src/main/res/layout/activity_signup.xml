@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
+    android:id="@+id/linearsignin"
     tools:context=".SignUp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="262dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:src="@drawable/i" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loginupp"
+        android:layout_width="300dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="400dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/login" />
 
     <LinearLayout
         android:layout_width="match_parent"

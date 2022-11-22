@@ -3,10 +3,16 @@ package com.example.aexox;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
+import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,14 +31,23 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogOut ,b1,pdfpage;
+    Button btnLogOut ,b1,pdfpage,payment;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    TextView selectpdf, userid;
-    EditText e1;
+    TextView selectpdf, userid, pdfSize, pgCount;
+    EditText e1, discription;
+    Switch pdfView;
 
     StorageReference storageReference ;
     DatabaseReference databaseReference;
@@ -41,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         btnLogOut = findViewById(R.id.btnLogout);
@@ -55,7 +71,15 @@ public class MainActivity extends AppCompatActivity {
         b1 = findViewById(R.id.b1);
         selectpdf = findViewById(R.id.selectpdf);
         userid = findViewById(R.id.userid);
-
+        pdfSize = findViewById(R.id.pdfsize);
+        payment = findViewById(R.id.payment);
+        pdfView = findViewById(R.id.pdfviewswitch);
+        discription = findViewById(R.id.discription);
+        pgCount = findViewById(R.id.pgcount);
+        payment.setOnClickListener(view -> {
+            Toast.makeText(getApplicationContext(),"payment ",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getApplicationContext(),MainPage.class));
+        });
         storageReference = FirebaseStorage.getInstance().getReference();
 
         pdfpage.setOnClickListener(view -> {
@@ -64,12 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
-
-
         b1.setEnabled(false);
-
-
         selectpdf.setOnClickListener(view -> selectPDF());
 
     }
@@ -85,8 +104,42 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==12 && resultCode==RESULT_OK && data != null && data.getData()!=null){
             b1.setEnabled(true);
-            e1.setText(data.getDataString()
-                    .substring(data.getDataString().lastIndexOf("/")+1));
+            Uri returnUri = data.getData();
+
+
+
+            try {
+                PDDocument doc = PDDocument.load( getContentResolver().openInputStream(returnUri));
+                int count = doc.getNumberOfPages();
+                pgCount.setText(Integer.toString(count));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Cursor returnCursor =  getContentResolver().query(returnUri, null, null, null, null);
+            int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+            int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
+            returnCursor.moveToFirst();
+            Long nu = returnCursor.getLong(sizeIndex);
+            DecimalFormat df = new DecimalFormat("0.00");
+            String ss = null;
+
+            float sizeKb = 1024.0f;
+            float sizeMb = sizeKb * sizeKb;
+            float sizeGb = sizeMb * sizeKb;
+            float sizeTerra = sizeGb * sizeKb;
+
+
+            if(nu< sizeMb)
+                ss = df.format(nu/ sizeKb)+ " Kb";
+            else if(nu< sizeGb)
+                ss = df.format(nu/ sizeMb) + " Mb";
+            else if(nu< sizeTerra)
+                ss = df.format(nu/ sizeGb) + " Gb";
+            e1.setText(returnCursor.getString(nameIndex));
+            pdfSize.setText(ss);
+
             b1.setOnClickListener(view -> uploadPDFFILEFirebase(data.getData()));
         }
     }
@@ -97,15 +150,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            boolean emailVerified = user.isEmailVerified();
-            String uid = user.getUid();
-            userid.setText(uid);
+            startActivity(new Intent(MainActivity.this, MainPage.class));
         }
         if (user == null){
-            startActivity(new Intent(MainActivity.this, Login.class));
+            startActivity(new Intent(MainActivity.this, onBording.class));
         }
     }
 
@@ -113,21 +161,22 @@ public class MainActivity extends AppCompatActivity {
         final ProgressDialog progressDialog =  new ProgressDialog(this);
         progressDialog.setTitle("file is loading");
         progressDialog.show();
-
-        StorageReference reference = storageReference.child("upload"+System.currentTimeMillis()+".pdf");
+        FirebaseUser user = mAuth.getCurrentUser();
+        StorageReference reference = storageReference.child(user.getUid()+"/"+System.currentTimeMillis()+".pdf");
         reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
+
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                         while(!uriTask.isComplete());
                         Uri uri = uriTask.getResult();
-                        putPf putPf = new putPf(e1.getText().toString(),uri.toString());
-
-                        FirebaseUser user = mAuth.getCurrentUser();
+                        Date date = new Date();
                         databaseReference = FirebaseDatabase.getInstance().getReference("uploadPDF/"+user.getUid());
-                        databaseReference.child(Objects.requireNonNull(databaseReference.push().getKey())).setValue(putPf);
+                        String key = databaseReference.push().getKey();
+                        putPf putPf = new putPf(e1.getText().toString(),uri.toString(),key,pdfSize.getText().toString(),pdfView.isChecked(),date.toString(),discription.getText().toString(),pgCount.getText().toString());
+                        databaseReference.child(Objects.requireNonNull(key)).setValue(putPf);
                         Toast.makeText(MainActivity.this,"file upload",Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();
                         startActivity(new Intent(MainActivity.this,PdfPage.class));

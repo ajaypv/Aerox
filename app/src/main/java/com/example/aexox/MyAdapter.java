@@ -1,6 +1,7 @@
 package com.example.aexox;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void setOnItemClickListener(OnItemClickListener listener){
         itemClickListener = listener;
     }
-
-
 
 
     public MyAdapter(Context context, ArrayList<PdfModel> list) {

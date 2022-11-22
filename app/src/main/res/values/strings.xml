@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">AEROX</string>
     <string name="logout">Logout</string>
     <string name="welcome_you_are_logged_in">Welcome, You are logged in</string>
@@ -17,4 +18,17 @@
     <string name="upload_file">Upload file</string>
     <string name="pdf_files">Pdf Files</string>
     <string name="pdf_name">PDF Name :</string>
+    <string name="let_get_started">let get started</string>
+
+
+    <string name="firestdesc">Upload the PDF File in Aerox and select near Aerox point </string>
+    <string name="secdesc">Make a Upi payment through installed upi payment apps </string>
+    <string name="thirddesc">After Successful Payment collect Your printOuts</string>
+    <string name="firest_slide_title">Upload File</string>
+    <string name="second_slide_title">Make Payment</string>
+    <string name="third_slide_title">Get Print Out</string>
+    <string name="Signup" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="whatsapp_number">WhatsApp Number</string>
 </resources>

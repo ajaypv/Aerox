@@ -20,15 +20,15 @@
         app:layout_constraintVertical_bias="0.478" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="411dp"
-            android:layout_height="168dp"
+            android:layout_width="412dp"
+            android:layout_height="181dp"
             android:background="#33C338"
             android:backgroundTint="#1A1A1C">
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="187dp"
-                android:layout_height="28dp"
+                android:layout_width="185dp"
+                android:layout_height="30dp"
                 android:text="Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +50,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.868" />
 
-            <ImageView
-                android:id="@+id/imageView2"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/signupp"
+
                 android:layout_width="101dp"
                 android:layout_height="109dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +61,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.271"
-                app:srcCompat="@drawable/pdf" />
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/pdfsymbol" />
+
 
             <Button
                 android:id="@+id/pdfprint"

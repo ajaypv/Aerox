@@ -3,13 +3,17 @@ package com.example.aexox;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.TextUtils;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,18 +28,25 @@ public class SignUp extends AppCompatActivity {
     TextInputEditText etRegPassword;
     TextView tvLoginHere;
     Button btnRegister;
+    LinearLayout signUp;
 
     FirebaseAuth mAuth;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
 
         etRegEmail = findViewById(R.id.etRegEmail);
         etRegPassword = findViewById(R.id.etRegPass);
         tvLoginHere = findViewById(R.id.tvLoginHere);
         btnRegister = findViewById(R.id.btnRegister);
+        signUp = findViewById(R.id.linearsignin);
+
+
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -68,7 +79,7 @@ public class SignUp extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(SignUp.this, "User registered successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignUp.this, MainActivity.class));
+                        startActivity(new Intent(SignUp.this, MainPage.class));
                     }else{
                         Toast.makeText(SignUp.this, "Registration Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
