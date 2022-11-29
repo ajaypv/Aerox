@@ -37,7 +37,7 @@ public class privatepdfs extends Fragment {
     MyAdapter myAdapter;
     ArrayList<PdfModel> list;
     private RetrofitInterface retrofitInterface;
-    private final String BASE_URL = "http://3.110.157.19";
+    private final String BASE_URL = "http://15.207.15.29";
 
     @Override
     @SuppressLint("MissingInflatedId")
@@ -111,45 +111,49 @@ public class privatepdfs extends Fragment {
 
     private void gotoPDf(String pdfName, String url,String pdfid,String numberPages){
         try {
-            Toast.makeText(getActivity(),"Sending request",Toast.LENGTH_SHORT).show();
             FirebaseUser user = mAuth.getCurrentUser();
-            HashMap<String, String> map = new HashMap<>();
-            map.put("userUid", user.getUid());
-            map.put("pdfName",pdfName);
-            map.put("pdfLink", url);
-            map.put("pdfId", pdfid);
-            map.put("numberPages",numberPages);
+//            HashMap<String, String> map = new HashMap<>();
+//            map.put("userUid", user.getUid());
+//            map.put("pdfName",pdfName);
+//            map.put("pdfLink", url);
+//            map.put("pdfId", pdfid);
+//            map.put("numberPages",numberPages);
+//
+//            Call<Void> call = retrofitInterface.executePrint(map);
+//
+//            call.enqueue(new Callback<Void>() {
+//                @Override
+//                public void onResponse(Call<Void> call, Response<Void> response) {
+//
+//                    if (response.code() == 200) {
+                        Toast.makeText(getActivity(),"request sent",Toast.LENGTH_SHORT).show();
+                        Intent pdf = new Intent(getActivity(), XeroxSelect.class);
+                        pdf.putExtra("userUid", user.getUid());
+                        pdf.putExtra("pdfName",pdfName);
+                        pdf.putExtra("pdfLink", url);
+                        pdf.putExtra("pdfId", pdfid);
+                        pdf.putExtra("numberPages",numberPages);
+                        startActivity(pdf);
 
-            Call<Void> call = retrofitInterface.executePrint(map);
 
-            call.enqueue(new Callback<Void>() {
-                @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
+//                    } else if (response.code() == 400) {
+//                        Toast.makeText(getActivity(),"request not sent",Toast.LENGTH_SHORT).show();
+//
+//                    }else{
+//                        Toast.makeText(getActivity(),"server down",Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<Void> call, Throwable t) {
+//                    Toast.makeText(getActivity(),"Not able to make request",Toast.LENGTH_SHORT).show();
+//
+//                }
+//            });
 
-                    if (response.code() == 200) {
-                        Toast.makeText(getActivity(),"Text!",Toast.LENGTH_SHORT).show();
-
-
-                    } else if (response.code() == 400) {
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-
-                }
-            });
-            Intent pdf = new Intent(getActivity(),PaymentPage.class);
-            pdf.putExtra("userUid", user.getUid());
-            pdf.putExtra("pdfName",pdfName);
-            pdf.putExtra("pdfLink", url);
-            pdf.putExtra("pdfId", pdfid);
-            pdf.putExtra("numberPages",numberPages);
-            startActivity(pdf);
 
         }catch (Exception e){
-
+            Toast.makeText(getActivity(),"Not able to make request",Toast.LENGTH_SHORT).show();
 
         }
 

@@ -39,23 +39,50 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
 
         etLoginEmail = findViewById(R.id.etLoginEmail);
         etLoginPassword = findViewById(R.id.etLoginPass);
         tvRegisterHere = findViewById(R.id.tvRegisterHere);
         btnLogin = findViewById(R.id.btnLogin);
         layo = findViewById(R.id.layoutlogin);
-        
+
 
         mAuth = FirebaseAuth.getInstance();
 
         btnLogin.setOnClickListener(view -> {
+            final VibrationEffect vibrationEffect3;
 
+            // this type of vibration requires API 29
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+
+                // create vibrator effect with the constant EFFECT_DOUBLE_CLICK
+                vibrationEffect3 = VibrationEffect.createPredefined(VibrationEffect.EFFECT_DOUBLE_CLICK);
+
+                // it is safe to cancel other vibrations currently taking place
+                vibrator.cancel();
+
+                vibrator.vibrate(vibrationEffect3);
+            }
             loginUser();
 
         });
         tvRegisterHere.setOnClickListener(view ->{
             startActivity(new Intent(Login.this, SignUp.class));
+            final VibrationEffect vibrationEffect3;
+
+            // this type of vibration requires API 29
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+
+                // create vibrator effect with the constant EFFECT_DOUBLE_CLICK
+                vibrationEffect3 = VibrationEffect.createPredefined(VibrationEffect.EFFECT_DOUBLE_CLICK);
+
+                // it is safe to cancel other vibrations currently taking place
+                vibrator.cancel();
+
+                vibrator.vibrate(vibrationEffect3);
+            }
         });
     }
     private void loginUser(){
@@ -77,6 +104,19 @@ public class Login extends AppCompatActivity {
                         startActivity(new Intent(Login.this, MainActivity.class));
                     }else{
                         Toast.makeText(Login.this, "Log in Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        final VibrationEffect vibrationEffect3;
+                        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        // this type of vibration requires API 29
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                            // create vibrator effect with the constant EFFECT_DOUBLE_CLICK
+                            vibrationEffect3 = VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK);
+                            // it is safe to cancel other vibrations currently taking place
+                            vibrator.cancel();
+                            vibrator.vibrate(vibrationEffect3);
+                        }
+                        // this type of vibration requires API 29
+
+
                     }
                 }
             });
@@ -84,4 +124,3 @@ public class Login extends AppCompatActivity {
     }
 
 }
-

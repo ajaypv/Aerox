@@ -45,7 +45,7 @@ public class OtpverificationPage extends AppCompatActivity {
 
     private RetrofitInterface retrofitInterface;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private String BASE_URL = "http://3.110.157.19";
+    private String BASE_URL = "http://15.207.15.29";
 
     @SuppressLint("MissingInflatedId")
     @Override

@@ -30,7 +30,7 @@ public class otpVerifaction extends AppCompatActivity {
     OtpTextView otpTextView;
     private RetrofitInterface retrofitInterface;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private final String BASE_URL = "http://3.110.157.19";
+    private final String BASE_URL = "http://15.207.15.29";
 
     @SuppressLint("MissingInflatedId")
     @Override

@@ -36,7 +36,7 @@ public class publicpdf extends Fragment {
     MyAdapter myAdapter;
     ArrayList<PdfModel> list;
     private RetrofitInterface retrofitInterface;
-    private final String BASE_URL = "http://3.110.157.19";
+    private final String BASE_URL = "http://15.207.15.29";
 
 
     @Override
@@ -99,9 +99,6 @@ public class publicpdf extends Fragment {
 
     private void gotoPDf(String pdfName, String url,String pdfid,String numberPages){
         try {
-
-
-
 
             Toast.makeText(getActivity(),
                     "pdf sent", Toast.LENGTH_LONG).show();

@@ -1,5 +1,7 @@
 package com.example.aexox;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -20,8 +22,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -61,6 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogOut = findViewById(R.id.btnLogout);
         mAuth = FirebaseAuth.getInstance();
+
+
+
+// Confirm the link is a sign-in with email link.
+//        if (mAuth.isSignInWithEmailLink(emailLink)) {
+//            // Retrieve this from wherever you stored it
+//            String email = "ajaypv44@gmail.com";
+//
+//            // The client SDK will parse the code from the link for you.
+//           Log.d("___>","eefef");
+//        }
 
         btnLogOut.setOnClickListener(view ->{
             mAuth.signOut();
@@ -175,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                         Date date = new Date();
                         databaseReference = FirebaseDatabase.getInstance().getReference("uploadPDF/"+user.getUid());
                         String key = databaseReference.push().getKey();
-                        putPf putPf = new putPf(e1.getText().toString(),uri.toString(),key,pdfSize.getText().toString(),pdfView.isChecked(),date.toString(),discription.getText().toString(),pgCount.getText().toString());
+                        putPf putPf = new putPf(e1.getText().toString(),uri.toString(),key,pdfSize.getText().toString(),pdfView.isChecked(),date.toString(),discription.getText().toString(),pgCount.getText().toString(),"none");
                         databaseReference.child(Objects.requireNonNull(key)).setValue(putPf);
                         Toast.makeText(MainActivity.this,"file upload",Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();

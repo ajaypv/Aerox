@@ -162,7 +162,7 @@ public class UploadPdf extends AppCompatActivity {
                         String key = databaseReference.push().getKey();
                         databaseReference2 = FirebaseDatabase.getInstance().getReference("PublicPDF");
 
-                        putPf putPf = new putPf(fileName.getText().toString(),uri.toString(),key,fileSize.getText().toString(),privateFile.isChecked(),date.toString(),description.getText().toString(),filepageCount.getText().toString());
+                        putPf putPf = new putPf(fileName.getText().toString(),uri.toString(),key,fileSize.getText().toString(),privateFile.isChecked(),date.toString(),description.getText().toString(),filepageCount.getText().toString(),"None");
                         databaseReference.child(Objects.requireNonNull(key)).setValue(putPf);
                         if(privateFile.isChecked()){
                             databaseReference2.child(Objects.requireNonNull(key)).setValue(putPf);

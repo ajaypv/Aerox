@@ -1,5 +1,7 @@
 package com.example.aexox;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +9,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,13 +24,16 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class SignUp extends AppCompatActivity {
     TextInputEditText etRegEmail;
     TextInputEditText etRegPassword;
-    TextView tvLoginHere;
+    TextView tvLoginHere,passless;
     Button btnRegister;
     LinearLayout signUp;
 
@@ -44,11 +51,29 @@ public class SignUp extends AppCompatActivity {
         tvLoginHere = findViewById(R.id.tvLoginHere);
         btnRegister = findViewById(R.id.btnRegister);
         signUp = findViewById(R.id.linearsignin);
+        passless = findViewById(R.id.passwordless);
 
 
 
 
         mAuth = FirebaseAuth.getInstance();
+        passless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final VibrationEffect vibrationEffect3;
+                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                // this type of vibration requires API 29
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                    // create vibrator effect with the constant EFFECT_DOUBLE_CLICK
+                    vibrationEffect3 = VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK);
+                    // it is safe to cancel other vibrations currently taking place
+                    vibrator.cancel();
+                    vibrator.vibrate(vibrationEffect3);
+                }
+                startActivity(new Intent(getApplicationContext(),Passwordlesslogin.class));
+            }
+        });
+
 
         btnRegister.setOnClickListener(view ->{
             createUser();

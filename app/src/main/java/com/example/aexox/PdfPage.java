@@ -35,7 +35,7 @@ public class PdfPage extends AppCompatActivity {
     MyAdapter myAdapter;
     ArrayList<PdfModel> list;
     private RetrofitInterface retrofitInterface;
-    private final String BASE_URL = "http://3.110.157.19";
+    private final String BASE_URL = "http://43.205.215.187";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

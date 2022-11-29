@@ -51,6 +51,15 @@ public class putPf {
     public String date;
     public String discription;
 
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
+    }
+
+    public String currentStatus;
 
     public String getNumberPages() {
         return numberPages;
@@ -61,7 +70,7 @@ public class putPf {
     }
 
     public String numberPages;
-    public putPf(String name, String url,String pdfId,String size,boolean pdfVisibility,String date, String discription, String numberPages){
+    public putPf(String name, String url,String pdfId,String size,boolean pdfVisibility,String date, String discription, String numberPages , String currentStatus){
         this.name = name;
         this.url = url;
         this.pdfId = pdfId;
@@ -70,6 +79,8 @@ public class putPf {
         this.date = date;
         this.discription = discription;
         this.numberPages = numberPages;
+        this.currentStatus = currentStatus;
+
     }
     public String getName(){
         return name;
