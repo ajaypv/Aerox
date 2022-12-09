@@ -23,7 +23,7 @@
             android:layout_width="412dp"
             android:layout_height="181dp"
             android:background="#33C338"
-            android:backgroundTint="#1A1A1C">
+            android:backgroundTint="#C7C7DC">
 
             <TextView
                 android:id="@+id/name"
@@ -74,10 +74,10 @@
                 android:text="Print"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.872"
+                app:layout_constraintHorizontal_bias="0.833"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.133" />
+                app:layout_constraintVertical_bias="0.12" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

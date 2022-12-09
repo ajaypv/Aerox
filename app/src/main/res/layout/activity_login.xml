@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".Login">
+    tools:context="com.aeroxlive.aeroxapplication.Login">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/signupp"

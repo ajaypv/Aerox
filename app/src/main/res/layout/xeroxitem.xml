@@ -21,7 +21,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="412dp"
             android:layout_height="181dp"
-            android:background="#33C338"
             android:backgroundTint="#1A1A1C">
 
             <TextView
@@ -62,7 +61,7 @@
                 app:layout_constraintVertical_bias="0.271"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/pdfsymbol" />
+                app:lottie_rawRes="@raw/printing" />
 
 
             <Button

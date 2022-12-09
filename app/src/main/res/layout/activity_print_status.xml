@@ -4,20 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".printStatus">
+    tools:context="com.aeroxlive.aeroxapplication.printStatus">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/circular_shape"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:textAlignment="center" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/printStatus"
-        android:layout_width="377dp"
-        android:layout_height="0dp"
+        android:layout_width="288dp"
+        android:layout_height="339dp"
         android:layout_marginBottom="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/printsatusview"
-        app:layout_constraintVertical_bias="0.819"
+        app:layout_constraintVertical_bias="0.318"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/downloading" />
@@ -26,7 +35,7 @@
         android:id="@+id/printsatusview"
         android:layout_width="315dp"
         android:layout_height="65dp"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

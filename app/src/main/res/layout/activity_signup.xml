@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:id="@+id/linearsignin"
-    tools:context=".SignUp">
+    tools:context="com.aeroxlive.aeroxapplication.SignUp">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loginupp"
