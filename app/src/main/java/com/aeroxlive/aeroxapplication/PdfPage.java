@@ -74,6 +74,11 @@ public class PdfPage extends AppCompatActivity {
                         list.get(position).getNumberPages());
 
             }
+
+            @Override
+            public void onPdfDelete(int position) {
+
+            }
         });
 
         database.addValueEventListener(new ValueEventListener() {

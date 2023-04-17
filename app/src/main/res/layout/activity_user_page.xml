@@ -6,31 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.aeroxlive.aeroxapplication.UserPage">
 
-    <ImageView
-        android:id="@+id/profilepic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22"
-        tools:srcCompat="@tools:sample/avatars" />
+    <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="231dp"
+            android:layout_height="233dp"
 
-    <EditText
-        android:id="@+id/userName"
-        android:layout_width="240dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.417"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521" />
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/grey"
+            app:shapeAppearanceOverlay="@style/circleImageView"
+            android:src="@drawable/aerox"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.2"
+            android:id="@+id/shapeableImageView"/>
 
     <Button
         android:id="@+id/submitprofile"
@@ -43,4 +34,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.062" />
+
+    <LinearLayout
+            android:layout_width="409dp"
+            android:layout_height="304dp"
+
+            android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="0.037">
+
+        <!-- Profile image -->
+
+
+        <TextView
+                android:text="Name"
+                android:layout_width="match_parent"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content" android:id="@+id/textView7"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="58dp">
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:tint="@color/myBlue"
+                    app:srcCompat="@drawable/ic_baseline_person_24"/>
+
+            <TextView
+                    android:id="@+id/Usetname"
+                    android:layout_width="132dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="3"
+                    android:text=""
+                    android:textSize="20dp"/>
+
+            <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#002196F3"
+                    android:tint="@color/myBlue"
+                    app:srcCompat="@drawable/edit_button_icon"/>
+        </LinearLayout>
+        <TextView
+                android:text="Phone Number"
+                android:layout_width="match_parent"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content" android:id="@+id/textView73"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="58dp">
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:tint="@color/myBlue"
+                    app:srcCompat="@drawable/ic_baseline_phone_iphone_24"/>
+
+            <TextView
+                    android:id="@+id/Usetname1"
+                    android:layout_width="132dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="3"
+                    android:text=""
+                    android:textSize="20dp"/>
+
+            <ImageButton
+                    android:id="@+id/imageButton1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#002196F3"
+                    android:tint="@color/myBlue"
+                    app:srcCompat="@drawable/edit_button_icon"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </LinearLayout>
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

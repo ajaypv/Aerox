@@ -19,19 +19,6 @@
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/downloadedicon" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/openmailbox"
-        android:layout_width="245dp"
-        android:layout_height="193dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/mailsent" />
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="402dp"
@@ -45,5 +32,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/openmailbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Mail-Box"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

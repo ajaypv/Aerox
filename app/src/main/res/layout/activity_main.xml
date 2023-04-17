@@ -6,162 +6,27 @@
     android:layout_height="match_parent"
     tools:context="com.aeroxlive.aeroxapplication.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="368dp"
-        android:layout_height="66dp"
-        android:text="@string/welcome_you_are_logged_in"
-        android:textColor="#03A9F4"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+    <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/navbarK"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.981"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/s1"
-        android:layout_width="339dp"
-        android:layout_height="63dp"
-        android:hint="Edit FileName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
-
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/upload_file"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
-
-    <TextView
-        android:id="@+id/userid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UserId"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.302"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316" />
-
-    <TextView
-        android:id="@+id/selectpdf"
-        android:layout_width="296dp"
-        android:layout_height="52dp"
-        android:background="#D7C5F8"
-        android:text="select pdf from device"
-        android:textColor="#0019A6"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" />
-
-    <Button
-        android:id="@+id/pdfPage"
-        android:layout_width="266dp"
-        android:layout_height="48dp"
-        android:text="@string/pdf_files"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
-
-    <TextView
-        android:id="@+id/pdfsize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PdfSize"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/pdfPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discription"
-        app:layout_constraintVertical_bias="0.121" />
-
-    <Button
-        android:id="@+id/payment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Payment"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
-
-    <Switch
-        android:id="@+id/pdfviewswitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:text=" Public PDF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectpdf"
-        app:layout_constraintVertical_bias="0.351" />
-
-    <EditText
-        android:id="@+id/discription"
-        android:layout_width="244dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="188dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/pdfviewswitch"
-        app:layout_constraintHorizontal_bias="0.227"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/s1"
-        app:layout_constraintVertical_bias="0.581" />
-
-    <TextView
-        android:id="@+id/pgcount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="page count"
-        app:layout_constraintBottom_toTopOf="@+id/pdfPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discription"
-        app:layout_constraintVertical_bias="0.182" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navbarK"
+            android:layout_width="match_parent"
+            android:backgroundTint="@color/backgroungcolor"
+            android:layout_height="65dp"
+            android:background="@drawable/menu_item_border"
+            app:itemIconSize="31dp"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/navbar"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,7 +37,7 @@ public class XeroxSelect extends AppCompatActivity {
     Button submit;
     DatabaseReference database , database2;
     RetrofitInterface retrofitInterface;
-    String BASE_URL = "http://15.207.15.29";
+    String BASE_URL = "https://jzwwm6lnek.execute-api.ap-south-1.amazonaws.com/";
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
@@ -150,7 +150,7 @@ public class XeroxSelect extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
 
                 if (response.code() == 200) {
-                    Intent ii =  new Intent(getApplicationContext(),printStatus.class);
+                    Intent ii =  new Intent(getApplicationContext(),printstatus.class);
                     ii.putExtra("pdfidd",pdfid);
                     ii.putExtra("userid",user.getUid());
                     startActivity(ii);
@@ -158,6 +158,9 @@ public class XeroxSelect extends AppCompatActivity {
 
 
                 } else if (response.code() == 400) {
+                    Toast.makeText(getApplicationContext(),
+                            "server down", Toast.LENGTH_LONG).show();
+                }else{
                     Toast.makeText(getApplicationContext(),
                             "server down", Toast.LENGTH_LONG).show();
                 }

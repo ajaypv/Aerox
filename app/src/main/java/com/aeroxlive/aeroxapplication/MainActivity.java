@@ -2,11 +2,15 @@ package com.aeroxlive.aeroxapplication;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Vibrator;
 import android.provider.OpenableColumns;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +22,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.aeroxlive.aeroxapplication.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -39,118 +47,140 @@ import java.util.Date;
 import java.util.Objects;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements StoresFragment.OnItemSelectedListener{
 
-    Button btnLogOut ,b1,pdfpage,payment;
+    private ppfragemnts ppFragment;
+    private Uploading uploadingFragment;
+
+    private ProfileFragment profileFragment;
+    private PaymentHistoryFragment paymentHistoryFragment;
+    private StoresFragment storesFragment;
+    private BottomNavigationView bottomNavigationView;
+    private boolean doubleBackToExitPressedOnce = false;
+
+
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    TextView selectpdf, userid, pdfSize, pgCount;
-    EditText e1, discription;
-    Switch pdfView;
-
-    StorageReference storageReference ;
-    DatabaseReference databaseReference;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
-
-        btnLogOut = findViewById(R.id.btnLogout);
-        mAuth = FirebaseAuth.getInstance();
-
-
-
-// Confirm the link is a sign-in with email link.
-//        if (mAuth.isSignInWithEmailLink(emailLink)) {
-//            // Retrieve this from wherever you stored it
-//            String email = "ajaypv44@gmail.com";
-//
-//            // The client SDK will parse the code from the link for you.
-//           Log.d("___>","eefef");
-//        }
-
-        btnLogOut.setOnClickListener(view ->{
-            mAuth.signOut();
-            startActivity(new Intent(MainActivity.this, SignUp.class));
-        });
-        pdfpage = findViewById(R.id.pdfPage);
-        e1 = findViewById(R.id.s1);
-        b1 = findViewById(R.id.b1);
-        selectpdf = findViewById(R.id.selectpdf);
-        userid = findViewById(R.id.userid);
-        pdfSize = findViewById(R.id.pdfsize);
-        payment = findViewById(R.id.payment);
-        pdfView = findViewById(R.id.pdfviewswitch);
-        discription = findViewById(R.id.discription);
-        pgCount = findViewById(R.id.pgcount);
-        payment.setOnClickListener(view -> {
-            Toast.makeText(getApplicationContext(),"payment ",Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getApplicationContext(),MainPage.class));
-        });
-        storageReference = FirebaseStorage.getInstance().getReference();
-
-        pdfpage.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, PdfPage.class));
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null){
+            startActivity(new Intent(MainActivity.this, onBording.class));
+            finish();
+        }else if (user.getPhoneNumber().length() < 10){
+            startActivity(new Intent(MainActivity.this, OtpverificationPage.class));
+            finish();
+        }else{
 
 
-        });
-
-        b1.setEnabled(false);
-        selectpdf.setOnClickListener(view -> selectPDF());
-
-    }
-
-    private void selectPDF() {
-        Intent intent = new Intent();
-        intent.setType("application/pdf");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"select pdf file"),12);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==12 && resultCode==RESULT_OK && data != null && data.getData()!=null){
-            b1.setEnabled(true);
-            Uri returnUri = data.getData();
+            bottomNavigationView = (BottomNavigationView) findViewById(R.id.navbarK);
+            ppFragment = new ppfragemnts();
+            uploadingFragment = new Uploading();
+            storesFragment = new StoresFragment();
+            paymentHistoryFragment = new PaymentHistoryFragment();
+            profileFragment = new ProfileFragment();
 
 
 
-            try {
-                PDDocument doc = PDDocument.load( getContentResolver().openInputStream(returnUri));
-                int count = doc.getNumberOfPages();
-                pgCount.setText(Integer.toString(count));
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Cursor returnCursor =  getContentResolver().query(returnUri, null, null, null, null);
-            int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-            int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
-            returnCursor.moveToFirst();
-            Long nu = returnCursor.getLong(sizeIndex);
-            DecimalFormat df = new DecimalFormat("0.00");
-            String ss = null;
-
-            float sizeKb = 1024.0f;
-            float sizeMb = sizeKb * sizeKb;
-            float sizeGb = sizeMb * sizeKb;
-            float sizeTerra = sizeGb * sizeKb;
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, ppFragment);
+            fragmentTransaction.commit();
 
 
-            if(nu< sizeMb)
-                ss = df.format(nu/ sizeKb)+ " Kb";
-            else if(nu< sizeGb)
-                ss = df.format(nu/ sizeMb) + " Mb";
-            else if(nu< sizeTerra)
-                ss = df.format(nu/ sizeGb) + " Gb";
-            e1.setText(returnCursor.getString(nameIndex));
-            pdfSize.setText(ss);
+            bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @SuppressLint("NonConstantResourceId")
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            b1.setOnClickListener(view -> uploadPDFFILEFirebase(data.getData()));
+                    switch(item.getItemId())
+                    {
+                        case R.id.home:
+                            replaceFragment(ppFragment);
+                            MenuButtonVibrate();
+                            return true;
+
+                        case R.id.stores:
+                            replaceFragment(storesFragment);
+                            MenuButtonVibrate();
+                            return true;
+
+                        case R.id.upload:
+                            replaceFragment(uploadingFragment);
+                            MenuButtonVibrate();
+                            return true;
+
+                        case R.id.history:
+                            replaceFragment(paymentHistoryFragment);
+                            MenuButtonVibrate();
+                            return true;
+
+                        case R.id.profile:
+                            replaceFragment(profileFragment);
+                            MenuButtonVibrate();
+                            return true;
+
+                    }
+                    return false;
+                }
+            });
+
+
+
         }
+
+
+    }
+
+    private void MenuButtonVibrate(){
+        Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(50);
+    }
+
+
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment currentFragment = fragmentManager.findFragmentById(R.id.container);
+
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        if (currentFragment instanceof ppfragemnts) {
+            // Close the app
+            finishAffinity();
+            System.exit(0);
+
+        } else {
+            // Navigate back to the home fragment
+            fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            replaceFragment(ppFragment);
+            bottomNavigationView.setSelectedItemId(R.id.home);
+        }
+
+
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 
 
@@ -158,46 +188,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null) {
-            startActivity(new Intent(MainActivity.this, MainPage.class));
-        }
         if (user == null){
             startActivity(new Intent(MainActivity.this, onBording.class));
+            finish();
+        }else if(user.getPhoneNumber().length() < 10){
+            startActivity(new Intent(getApplicationContext(), OtpverificationPage.class));
+            finish();
         }
     }
 
-    private void uploadPDFFILEFirebase(Uri data) {
-        final ProgressDialog progressDialog =  new ProgressDialog(this);
-        progressDialog.setTitle("file is loading");
-        progressDialog.show();
-        FirebaseUser user = mAuth.getCurrentUser();
-        StorageReference reference = storageReference.child(user.getUid()+"/"+System.currentTimeMillis()+".pdf");
-        reference.putFile(data)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+    @Override
+    public void onItemSelected(StoreModel storeModel) {
+        if(storeModel.getPower().equals("Offline")){
+            Toast.makeText(this, "Currently Store is Offline", Toast.LENGTH_SHORT).show();
+        }else{
+            if(storeModel != null){
+                Intent StoreData = new Intent(getApplicationContext(),MainActivity.class);
+                StoreData.putExtra("StoreName",storeModel.getShopName());
+                StoreData.putExtra("StoreId",storeModel.getStoreId());
+                StoreData.putExtra("storeColorPrice", storeModel.getColorPrice());
+                StoreData.putExtra("storeBlackAndWhitePrice", storeModel.getBwPrice());
+
+                startActivity(StoreData);
+            }else{
+                Toast.makeText(this, "Error in the selected Store", Toast.LENGTH_SHORT).show();
+            }
+
+        }
 
 
-                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                        while(!uriTask.isComplete());
-                        Uri uri = uriTask.getResult();
-                        Date date = new Date();
-                        databaseReference = FirebaseDatabase.getInstance().getReference("uploadPDF/"+user.getUid());
-                        String key = databaseReference.push().getKey();
-                        putPf putPf = new putPf(e1.getText().toString(),uri.toString(),key,pdfSize.getText().toString(),pdfView.isChecked(),date.toString(),discription.getText().toString(),pgCount.getText().toString(),"none");
-                        databaseReference.child(Objects.requireNonNull(key)).setValue(putPf);
-                        Toast.makeText(MainActivity.this,"file upload",Toast.LENGTH_LONG).show();
-                        progressDialog.dismiss();
-                        startActivity(new Intent(MainActivity.this,PdfPage.class));
-                    }
-                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-
-                        double progress  =(100.0 * snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
-                        progressDialog.setMessage("File Uploading...."+(int) progress +" %");
-
-                    }
-                });
     }
 }

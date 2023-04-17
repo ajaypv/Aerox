@@ -23,6 +23,7 @@ public class LinkPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),OtpverificationPage.class));
+                finish();
             }
         });
         mail.setOnClickListener(new View.OnClickListener() {

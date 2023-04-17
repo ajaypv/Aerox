@@ -6,49 +6,49 @@
     android:layout_height="match_parent">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationpic"
-        android:layout_width="407dp"
-        android:layout_height="454dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/uploading" />
+            android:id="@+id/animationpic"
+            android:layout_width="wrap_content"
+            android:layout_height="461dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/uploading"/>
 
     <TextView
-        android:id="@+id/sliderheader"
-        android:layout_width="206dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="181dp"
-        android:fontFamily="@font/allerta"
-        android:gravity="center"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animationpic" />
+            android:id="@+id/sliderheader"
+            android:layout_width="206dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="172dp"
+            android:layout_marginEnd="181dp"
+
+            android:gravity="center"
+            android:text="TextView"
+            android:layout_marginTop="60dp"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.431"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/animationpic"/>
 
     <TextView
-        android:id="@+id/sliderdesc"
-        android:layout_width="314dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="160dp"
-        android:fontFamily="@font/allerta"
-        android:gravity="center"
-        android:text="@string/firestdesc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sliderheader" />
+            android:id="@+id/sliderdesc"
+            android:layout_width="328dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginTop="20dp"
+
+            android:gravity="center"
+            android:text="@string/firestdesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sliderheader"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RadioButtonTheme1">Radio
+
+        <item name="android:textColor" type="">@color/material_on_surface_emphasis_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SliderTheme">st</style>
+
+
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:padding">12dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/my_button_background</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

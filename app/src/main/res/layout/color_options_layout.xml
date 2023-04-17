@@ -1,0 +1,54 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Color"
+            android:textSize="18sp"/>
+
+    <RadioGroup
+            android:id="@+id/binding_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp">
+
+        <RadioButton
+                android:id="@+id/yellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Yellow"
+                android:textSize="20sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:buttonTint="#FFEB3B"/>
+
+        <RadioButton
+                android:id="@+id/blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Blue"
+                android:textSize="20sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:buttonTint="#3F51B5"/>
+
+        <RadioButton
+                android:id="@+id/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Transparent"
+                android:textSize="20sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+
+    </RadioGroup>
+</LinearLayout>

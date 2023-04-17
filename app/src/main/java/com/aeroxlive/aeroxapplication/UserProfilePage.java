@@ -40,7 +40,7 @@ public class UserProfilePage extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(),onBording.class));
             }
         });
     }

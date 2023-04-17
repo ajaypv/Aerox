@@ -1,6 +1,8 @@
 package com.aeroxlive.aeroxapplication;
 
 
+import android.graphics.Bitmap;
+
 public class PdfModel {
 
     String name;
@@ -10,6 +12,16 @@ public class PdfModel {
     String discription;
     String pdfId;
     String numberPages;
+
+    public Bitmap getFirstPageBitmap() {
+        return firstPageBitmap;
+    }
+
+    public void setFirstPageBitmap(Bitmap firstPageBitmap) {
+        this.firstPageBitmap = firstPageBitmap;
+    }
+
+    Bitmap firstPageBitmap;
 
     public String getNumberPages() {
         return numberPages;

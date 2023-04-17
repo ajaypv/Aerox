@@ -13,6 +13,6 @@ public interface RetrofitInterface {
     @POST("SendOtp")
     Call<Void> executeSignup (@Body HashMap<String, String> map);
 
-    @POST("printPdf")
+    @POST("postpdfprint")
     Call<Void> executePrint(@Body HashMap<String, String> map);
 }

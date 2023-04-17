@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey"
+                android:orientation="vertical"
+                tools:context=".ProfileFragment"
+>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="#293859" />
+
+    <!--Top Header Layout-->
+    <LinearLayout
+            android:id="@+id/topbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ProfileBack"
+                android:padding="10dp"
+                android:src="@drawable/baseline_arrow_back_24" app:tint="@color/white"/>
+
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+
+
+
+    </LinearLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:layout_below="@+id/topbar">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp">
+
+            <!--Top Profile Section -->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circularbordersolidprofile"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="231dp"
+                            android:layout_height="233dp"
+                            android:id="@+id/userImage"
+                            app:strokeWidth="2dp"
+                            app:strokeColor="@color/blue"
+                            app:shapeAppearanceOverlay="@style/circleImageView"
+                            android:src="@drawable/aerox"
+                            android:padding="10dp"
+
+                             />
+
+
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:text="Profile Name"
+                            android:id="@+id/profileName"
+                            android:textColor="@color/blue"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                    />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <!--Option Bar-->
+
+
+
+            <!--Bootom Cards with sections-->
+            <LinearLayout
+                    android:id="@+id/personalinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <!--About Me Card-->
+
+
+                <!--Contact Details-->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circularbordersolid"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Account"
+                                android:textSize="17sp"
+                                android:textColor="@color/blue"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:paddingRight="8dp">
+
+                            <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_call_24dp" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="+91 799999999"
+                                    android:textSize="15sp"
+                                    android:id="@+id/userMobileNumber"
+                                    android:textColor="@color/goodgrey"
+                                    android:fontFamily="@font/proximanovaregular" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:paddingRight="8dp">
+
+                            <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_email_24dp" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:textColor="@color/goodgrey"
+                                    android:text="yourmailid@gmail.com"
+                                    android:textSize="15sp"
+                                    android:id="@+id/userMailId"
+                                    android:fontFamily="@font/proximanovaregular" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:paddingRight="8dp">
+
+                            <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_location_24dp" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="New horizon college of Enginerring"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/goodgrey"
+                                    android:fontFamily="@font/proximanovaregular" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--Skills Details-->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circularbordersolid"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/support_contact"
+                                android:textSize="17sp"
+                                android:textColor="@color/blue"
+                                android:textStyle="bold" />
+
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:id="@+id/websiteLink"
+                                android:paddingRight="8dp">
+
+                            <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/baseline_link_" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="aerox.live"
+                                    android:textColor="@color/goodgrey"
+                                    android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/mailSupport"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:paddingRight="8dp">
+
+                            <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_email_24dp" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:textColor="@color/goodgrey"
+                                    android:text="aerox.support@gmail.com"
+                                    android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:paddingRight="8dp">
+
+                            <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_location_24dp" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="Bangalore, India"
+                                    android:textColor="@color/goodgrey"
+                                    android:textSize="15sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--Experience Bottom Cards-->
+            <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/experience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/circularbordersolid"
+                        android:orientation="horizontal"
+                        android:id="@+id/contact"
+                        android:padding="20dp">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical">
+
+                        <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:padding="6dp"
+                                android:tint="@color/blue"
+                                android:background="@drawable/circular_grey_bordersolid"
+
+                                android:src="@drawable/baseline_help_outline" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="vertical">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:text="@string/help_support"
+                                    android:textColor="@color/blue"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+
+                        android:background="@drawable/circularbordersolid"
+                        android:orientation="horizontal"
+                        android:padding="20dp">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical">
+
+                        <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:padding="6dp"
+                                android:tint="@color/blue"
+                                android:background="@drawable/circular_grey_bordersolid"
+
+                                android:src="@drawable/baseline_error_outline" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="vertical">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:text="About"
+                                    android:textColor="@color/blue"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/logoutLinearLayout"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circularbordersolid"
+                        android:orientation="horizontal"
+                        android:padding="20dp">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical">
+
+                        <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:padding="6dp"
+                                android:tint="@color/red"
+                                android:background="@drawable/circular_grey_bordersolid"
+                                android:src="@drawable/baseline_logout" tools:ignore="UseAppTint"/>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="vertical">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:text="LOGOUT"
+                                    android:textColor="@color/red"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--Review Bottom Cards-->
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -6,51 +6,52 @@
     android:layout_height="match_parent"
     tools:context="com.aeroxlive.aeroxapplication.otpVerifaction">
 
-<!--    <com.google.android.material.textfield.TextInputEditText-->
-<!--        android:id="@+id/otpnum"-->
-<!--        android:layout_width="357dp"-->
-<!--        android:layout_height="83dp"-->
-<!--        android:hint="Enter otp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.759" />-->
 
-
-    <in.aabhasjindal.otptextview.OtpTextView
-        android:id="@+id/otpnum"
-        android:layout_width="399dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="204dp"
-        android:background="#16FFFFFF"
-
-
-        android:paddingLeft="20dp"
-        android:textColor="#0BE6D2"
-        app:bar_enabled="true"
-        app:bar_height="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupp"
-        app:layout_constraintVertical_bias="0.317"
-        app:length="4"
-        app:otp_text_size="34dp" />
+    <com.chaos.view.PinView
+            android:id="@+id/pin_view"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="#65EAEAEA"
+            app:cursorColor="@color/black"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="50dp"
+            app:itemRadius="5dp"
+            app:itemWidth="50dp"
+            app:lineColor="@color/myBlue"
+            app:lineWidth="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupp"
+            app:otp_text_size="34dp"/>
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/signupp"
-        android:layout_width="320dp"
-        android:layout_height="238dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/security" />
+            android:id="@+id/signupp"
+            android:layout_width="320dp"
+            android:layout_height="238dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.032"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/security"/>
+    <TextView
+            android:layout_width="386dp"
+            android:layout_height="109dp" android:id="@+id/errors"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.552" app:layout_constraintVertical_bias="0.82"
+            android:textSize="16sp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

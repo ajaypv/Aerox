@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/dialogbg">
+
+    <ImageView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_remove_24"
+            app:tint="@color/myBlue"
+            android:layout_gravity="center|top"
+            android:scaleType="centerCrop"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/createText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:text="Store info"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_weight="2"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="5dp"
+                android:textSize="25dp" />
+
+        <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_clear_24"
+                app:tint="@color/myBlue"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/cancelButton"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+            <LinearLayout
+                    android:id="@+id/layoutVideo"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+
+                   >
+                <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                        android:id="@+id/carousel"
+                        app:showIndicator="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+            >
+
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical">
+
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="6dp"
+                            android:background="@drawable/circular_grey_bordersolid"
+                            android:src="@drawable/baseline_store_mall_directory" />
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="New Horizon college of Engineering"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:id="@+id/shopName"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="Srinivas Enterprise"
+                                android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical">
+
+
+                    <ImageView
+                            app:tint="@color/black"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/baseline_access_time_24" />
+
+                    <TextView
+                            android:layout_marginLeft="3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="20 min"
+                            android:id="@+id/waiting_time"
+
+                            android:textSize="24dp"
+                            android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+            >
+                <ImageView
+                        app:tint="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+
+                        android:src="@drawable/baseline_track_changes_24" />
+                <ImageView
+                        android:layout_width="9dp"
+                        android:layout_height="9dp"
+                        android:padding="1dp"
+                        android:src="@drawable/circleyellowfil" />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/proximanovaregular"
+                        android:text="Opended"
+                        android:layout_margin="4dp"
+                        android:id="@+id/StoreStatus"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+            >
+                <ImageView
+                        app:tint="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+
+                        android:src="@drawable/baseline_people_outline_24" />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/proximanovaregular"
+                        android:text="0"
+                        android:id="@+id/PeopleCount"
+                        android:layout_margin="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+            >
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center_vertical">
+
+                    <ImageView
+                            app:tint="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:src="@drawable/baseline_invert_colors_24" />
+                    <ImageView
+                            app:tint="@color/black"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/baseline_currency_rupee" />
+                    <TextView
+                            android:layout_width="14dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/bwprice"
+                            android:fontFamily="@font/proximanovaregular"
+                            android:text="2"
+
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+
+                            android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:gravity="center_vertical">
+                    <ImageView
+                            app:tint="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+
+                            android:src="@drawable/baseline_format_color_fill_24" />
+                    <ImageView
+                            app:tint="@color/black"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/baseline_currency_rupee" />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:fontFamily="@font/proximanovaregular"
+                            android:text="10"
+                            android:id="@+id/colorprice"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+
+                            android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+        >
+            <ImageView
+                    app:tint="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+
+                    android:src="@drawable/baseline_plumbing_24" />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="Binding : "
+
+                    android:layout_margin="4dp"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="Avaliable"
+                    android:id="@+id/bindingsupport"
+                    android:layout_margin="4dp"
+
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

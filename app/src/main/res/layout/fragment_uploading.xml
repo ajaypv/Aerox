@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/githubbackgroungcolors"
+        tools:context=".Uploading">
+
+    <!-- File upload section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/dashedborder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.3"
+            android:id="@+id/constraintLayout">
+
+
+        <!-- Select file text -->
+        <TextView
+                android:id="@+id/select_file_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select a file to upload"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textAllCaps="true"
+                android:fontFamily="sans-serif-medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.205"/>
+
+        <!-- Browse file button -->
+        <Button
+                android:text="Browse File"
+                android:drawableLeft="@drawable/folder3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/upload_button"
+                android:background="@drawable/button_gradient"
+                android:stateListAnimator="@anim/button_press"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="64dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+            android:id="@+id/select_Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No File Selected"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.347"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintHorizontal_bias="0.209"/>
+    <ImageView
+            android:layout_width="28dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="28dp"
+            app:srcCompat="@drawable/baseline_block"
+            android:id="@+id/imageViewStatus"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/select_Status"
+            app:layout_constraintTop_toTopOf="@+id/select_Status" app:tint="@color/black"/>
+
+    <LinearLayout
+            android:layout_margin="20dp"
+            android:id="@+id/FileinfoItem"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" app:layout_constraintVertical_bias="0.326">
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:orientation="vertical"
+        >
+
+            <TextView
+                    android:text="File info"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" android:id="@+id/textView"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+            >
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical">
+
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="6dp"
+                            android:background="@drawable/circular_grey_bordersolid"
+                            android:src="@drawable/baseline_picture_as_pdf" app:tint="@color/blue"/>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="File Name"
+                                android:textColor="@color/blue"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="File Name"
+                                android:id="@+id/fileName"
+                                android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical">
+
+                    <ImageView
+                            android:layout_width="9dp"
+                            android:layout_height="9dp"
+                            android:padding="1dp"
+                            android:src="@drawable/circleyellowfil"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+            >
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+
+                        android:gravity="center_vertical">
+
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="6dp"
+                            android:background="@drawable/circular_grey_bordersolid"
+                            android:src="@drawable/baseline_file_present" app:tint="@color/blue"/>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="File Size"
+                                android:textColor="@color/blue"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="File size"
+                                android:id="@+id/fileSize"
+                                android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+
+                        android:gravity="center_vertical">
+
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="6dp"
+                            android:background="@drawable/circular_grey_bordersolid"
+                            android:src="@drawable/baseline_pages" app:tint="@color/blue"/>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="Pages Count"
+                                android:textColor="@color/blue"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="Pages Count"
+                                android:id="@+id/filePageCount"
+                                android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical">
+
+                    <ImageView
+                            android:layout_width="9dp"
+                            android:layout_height="9dp"
+                            android:padding="1dp"
+                            android:src="@drawable/circleyellowfil"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <Button
+                android:text="Upload File"
+
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/button_gradient"
+                android:drawableRight="@drawable/sharp_file_upload_24"
+                android:layout_height="wrap_content" android:id="@+id/button_upload"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,64 +7,68 @@
     tools:context="com.aeroxlive.aeroxapplication.OtpverificationPage">
 
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loginupp"
-        android:layout_width="282dp"
-        android:layout_height="280dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/whatsappicons" />
+    <TextView
+            android:textColor="@color/myBlue"
+            android:text="OTP Verification"
+            android:textSize="26dp"
+            android:id="@+id/loginupp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.098"
+    />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="138dp"
-        android:layout_height="69dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/otpmsg" />
+            android:layout_width="107dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.907"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.077"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/otpmsg"/>
+
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="232dp"
-        android:layout_height="63dp"
-        android:text="Send"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+            android:id="@+id/button"
+            android:layout_width="232dp"
+            android:layout_height="63dp"
+            android:text="Send OTP"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.541"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
 
 
-                <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
+                    <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="WhatsappNumber"
+        android:hint="Phone Number"
                 android:layout_width="290dp"
                 android:layout_height="63dp"
 
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.655"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296"
                 >
 
         <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
             android:id="@+id/phone_number"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             />
 
     </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>

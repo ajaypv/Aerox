@@ -11,8 +11,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loginupp"
-        android:layout_width="289dp"
-        android:layout_height="215dp"
+        android:layout_width="285dp"
+        android:layout_height="180dp"
         android:layout_marginLeft="40dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
@@ -69,6 +69,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/register_user"/>
+        <com.shobhitpuri.custombuttons.GoogleSignInButton
+                android:id="@+id/btnLogingoogle"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_centerInParent="true"
+                android:textSize="24sp"
+                android:text="Continue with Google"
+
+
+        />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

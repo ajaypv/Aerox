@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">AEROX</string>
+    <string name="app_name">Aerox</string>
     <string name="logout">Logout</string>
     <string name="welcome_you_are_logged_in">Welcome, You are logged in</string>
     <string name="login">Login</string>
@@ -21,14 +21,61 @@
     <string name="let_get_started">let get started</string>
 
 
-    <string name="firestdesc">Upload the PDF File in Aerox and select near Aerox point </string>
-    <string name="secdesc">Make a Upi payment through installed upi payment apps </string>
+    <string name="firestdesc">Upload the PDF File in Aerox and select near Aerox point</string>
+    <string name="secdesc">Make a Upi payment through installed upi payment apps</string>
     <string name="thirddesc">After Successful Payment collect Your printOuts</string>
     <string name="firest_slide_title">Upload File</string>
     <string name="second_slide_title">Make Payment</string>
     <string name="third_slide_title">Get Print Out</string>
-    <string name="Signup" />
+
+    <string name="Signup"/>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="whatsapp_number">WhatsApp Number</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="black_white"><![CDATA[Black & White]]></string>
+    <string name="black_white22"><![CDATA[Black & white :]]></string>
+    <string name="title_activity_store_select">StoreSelect</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="support_contact"><![CDATA[Support & Contact]]></string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
+
+    <string-array name="print_color_select">
+        <item>Black &amp; White</item>
+        <item>Color</item>
+    </string-array>
+    <string-array name="print_sides_select">
+        <item>Single-Side</item>
+        <item>Double-Sided</item>
+    </string-array>
+    <string-array name="print_binding_select">
+        <item>No binding</item>
+        <item>Soft binding</item>
+        <item>Hard binding</item>
+        <item>Spiral binding</item>
+    </string-array>
+    <string-array name="print_PageRange_select">
+        <item>All-Pages</item>
+        <item>Custom</item>
+
+    </string-array>
+    <string-array name="print_bindingcolors_select">
+        <item>Binding-color</item>
+        <item>Transparent</item>
+        <item>Black</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+
+
+    </string-array>
+    <string name="title_activity_payment_status">PaymentStatus</string>
 </resources>

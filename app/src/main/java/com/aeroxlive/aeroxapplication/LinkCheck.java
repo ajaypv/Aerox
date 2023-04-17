@@ -43,6 +43,7 @@ public class LinkCheck extends AppCompatActivity {
                                 Log.d(TAG, "Successfully signed in with email link!");
                                 AuthResult result = task.getResult();
                                 startActivity(new Intent(getApplicationContext(),MainPage.class));
+                                finish();
                             } else {
                                 Log.e(TAG, "Error signing in with email link", task.getException());
                             }

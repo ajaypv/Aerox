@@ -1,5 +1,9 @@
 package com.aeroxlive.aeroxapplication;
 
+import android.app.ProgressDialog;
+import android.content.SyncAdapterType;
+import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,13 +18,17 @@ import android.widget.Toast;
 
 import com.aeroxlive.aeroxapplication.R;
 import com.fredporciuncula.phonemoji.PhonemojiTextInputEditText;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,29 +42,32 @@ public class OtpverificationPage extends AppCompatActivity {
     TextView v1;
     PhonemojiTextInputEditText phoneNumber;
 
+    ProgressDialog progress;
 
-    private RetrofitInterface retrofitInterface;
+
+
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private String BASE_URL = "http://15.207.15.29";
+
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_otpverification_page);
         b1 = findViewById(R.id.button);
         phoneNumber= findViewById(R.id.phone_number);
+        progress = new ProgressDialog(this);
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        retrofitInterface = retrofit.create(RetrofitInterface.class);
+
 
 
         b1.setOnClickListener(view -> {
+            progress.setTitle("Loading");
+            progress.setMessage("Wait while loading...");
+            progress.setCancelable(false);
+            progress.show();
 
             String optNumber = phoneNumber.getText().toString();
             FirebaseUser user = mAuth.getCurrentUser();
@@ -68,40 +79,49 @@ public class OtpverificationPage extends AppCompatActivity {
                 boolean isValid = phoneUtil.isValidNumber(swissNumberProto);
                 if(isValid){
                     Long WhatsappNumbner =swissNumberProto.getNationalNumber();
+                    System.out.println(WhatsappNumbner);
                     try {
-                        HashMap<String, String> map = new HashMap<>();
+                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                                "+91"+ String.valueOf(WhatsappNumbner),        // The user's phone number to verify
+                                60,                 // Timeout duration
+                                TimeUnit.SECONDS,   // Unit of timeout
+                                this,               // Activity (for callback binding)
+                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
-                        map.put("mobileNumber", String.valueOf(WhatsappNumbner));
-                        map.put("userUid", user.getUid());
 
-                        Call<Void> call = retrofitInterface.executeSignup(map);
+                                    // Called when the verification is successfully sent
+                                    @Override
+                                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                        super.onCodeSent(s, forceResendingToken);
+                                       Intent verify =  new Intent(getApplicationContext(),otpVerifaction.class);
+                                       verify.putExtra("Verification_id", s);
+                                       verify.putExtra("phoneNumber", String.valueOf(WhatsappNumbner));
+                                       startActivity(verify);
+                                        progress.dismiss();
 
-                        call.enqueue(new Callback<Void>() {
-                            @Override
-                            public void onResponse(Call<Void> call, Response<Void> response) {
 
-                                if (response.code() == 200) {
-                                    Toast.makeText(OtpverificationPage.this,
-                                            "OTP sent Successfully", Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(getApplicationContext(), otpsent.class);
-                                    intent.putExtra("otpMobileNumber",String.valueOf(WhatsappNumbner) );
-                                    startActivity(intent);
-                                } else if (response.code() == 400) {
-                                    Toast.makeText(OtpverificationPage.this,
-                                            "server down", Toast.LENGTH_LONG).show();
-                                }
+                                    }
 
-                            }
+                                    // Called when the verification fails
+                                    @Override
+                                    public void onVerificationFailed(FirebaseException e) {
+                                        Toast.makeText(getApplicationContext(),"Error User Different Phone Number", Toast.LENGTH_LONG);
+                                        progress.dismiss();
+                                    }
 
-                            @Override
-                            public void onFailure(Call<Void> call, Throwable t) {
-                                Toast.makeText(OtpverificationPage.this, t.getMessage(),
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
+                                    // Called when the verification is successfully completed
+                                    @Override
+                                    public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+                                        // You don't need to manually enter the code, so this method should not be called
+                                        progress.dismiss();
+                                    }
+                                });
+
+
+
 
                     }catch (Exception e){
-
+                        Toast.makeText(getApplicationContext(),"Enter a Valid Number",Toast.LENGTH_LONG).show();
 
                     }
 
@@ -109,6 +129,7 @@ public class OtpverificationPage extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Enter a Valid Number",Toast.LENGTH_LONG).show();
                 }
             } catch (NumberParseException e) {
+                Toast.makeText(getApplicationContext(),"Error ",Toast.LENGTH_LONG).show();
                 System.err.println("NumberParseException was thrown: " + e.toString());
             }
 

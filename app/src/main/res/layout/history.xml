@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/githubbackgroungcolors"
+                android:orientation="vertical"
+                >
+
+
+            <LinearLayout
+                    android:id="@+id/paymentItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circularbordersolidhistory"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        >
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical">
+
+                        <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:padding="6dp"
+                                android:background="@drawable/circular_grey_bordersolid"
+                                android:src="@drawable/baseline_arrow_outward" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="vertical">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:text="Paid to"
+                                    android:textColor="@color/blue"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:id="@+id/shopName"
+                                    android:fontFamily="@font/proximanovaregular"
+                                    android:text="shop name"
+                                    android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical">
+
+                        <ImageView
+                                android:layout_width="9dp"
+                                android:layout_height="9dp"
+                                android:padding="1dp"
+                                android:src="@drawable/circleyellowfil" />
+                        <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_currency_rupee" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:text="20"
+                                android:id="@+id/printAmount"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="Date of payment"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                android:id="@+id/PaymentDate"
+                android:textStyle="bold" />
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/circular_grey_bordersolid"
+                    android:layout_height="wrap_content"
+
+                    android:src="@drawable/baseline_swap_horizontal_circle" />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:text="PaymentApp"
+                    android:id="@+id/Status"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+</LinearLayout>
+            </LinearLayout>
+
+</RelativeLayout>

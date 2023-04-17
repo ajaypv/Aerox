@@ -1,0 +1,24 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+                android:oneshot="false">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#FF0000" />
+            <size android:width="100dp" android:height="100dp" />
+        </shape>
+        <set>
+            <objectAnimator android:propertyName="width"
+                            android:valueFrom="100"
+                            android:valueTo="200"
+                            android:duration="1000"
+                            android:repeatCount="infinite"
+                            android:repeatMode="reverse" />
+            <objectAnimator android:propertyName="height"
+                            android:valueFrom="100"
+                            android:valueTo="200"
+                            android:duration="1000"
+                            android:repeatCount="infinite"
+                            android:repeatMode="reverse" />
+        </set>
+    </item>
+</animation-list>
+

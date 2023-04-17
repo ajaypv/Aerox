@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#2196F3</color>
+    <color name="purple_500">#2196F3</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#F3F3F3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="myBlue">#2196F3</color>
+    <color name="dark_grey">#444444</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="grey">#E9EAEE</color>
+    <color name="yellow">#F8BA0F</color>
+    <color name="goodgrey">#535353</color>
+    <color name="blue">#293859</color>
+    <color name="lightgrey">#EEEEEE</color>
+    <color name="backgroungcolor">#282e3f</color>
+    <color name="githubbackgroungcolors">#050505</color>
+    <color name="githubitemcolor">#17181c</color>
+    <color name="transparent">#00A0A6BD</color>
+
+
+</resources>

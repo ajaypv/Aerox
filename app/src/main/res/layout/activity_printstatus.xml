@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.aeroxlive.aeroxapplication.printstatus">
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+
+                                                   tools:context="com.aeroxlive.aeroxapplication.printstatus">
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            app:cpb_background_progressbar_color="#80214E47"
+            app:cpb_background_progressbar_width="20dp"
+            app:cpb_start_angle="0"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="#E907D8B1"
+            app:cpb_progressbar_width="10dp"
+            app:cpb_progress="2"
+
+            app:cpb_round_border="false"
+            app:cpb_background_progressbar_color_end="#7A214E47"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintVertical_bias="0.115"/>
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/circularProgressBar2"
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+
+            app:cpb_background_progressbar_color="#61659FF2"
+            app:cpb_background_progressbar_width="15dp"
+            app:cpb_start_angle="0"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="#659ff2"
+            app:cpb_progressbar_width="10dp"
+            app:cpb_progress="2"
+            app:cpb_round_border="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintVertical_bias="0.08"/>
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#659ff2"
+            android:text="0"
+            android:textSize="50dp"
+            app:layout_constraintBottom_toBottomOf="@id/circularProgressBar"
+            app:layout_constraintEnd_toEndOf="@id/circularProgressBar"
+            app:layout_constraintStart_toStartOf="@id/circularProgressBar"
+            app:layout_constraintTop_toTopOf="@id/circularProgressBar" app:layout_constraintVertical_bias="0.278"/>
+    <TextView
+            android:textColor="#659ff2"
+
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your File Sent to Server "
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/circularProgressBar"
+            app:layout_constraintEnd_toEndOf="@id/circularProgressBar"
+            app:layout_constraintStart_toStartOf="@id/circularProgressBar"
+            app:layout_constraintTop_toTopOf="@id/circularProgressBar" app:layout_constraintVertical_bias="0.574"
+            app:layout_constraintHorizontal_bias="0.509"/>
+    <TextView
+            android:textColor="#E907D8B1"
+
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/circularProgressBar"
+            app:layout_constraintEnd_toEndOf="@id/circularProgressBar"
+            app:layout_constraintStart_toStartOf="@id/circularProgressBar"
+            app:layout_constraintTop_toTopOf="@id/circularProgressBar" app:layout_constraintVertical_bias="0.767"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:id="@+id/queueRecycleView"
+            app:layout_constraintTop_toBottomOf="@id/circularProgressBar2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

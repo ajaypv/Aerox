@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
 
-    <item android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:id="@+id/home"/>
-    <item android:title="Link"
-        android:icon="@drawable/ic_baseline_link_24"
-        android:id="@+id/link"/>
-    <item android:title="Settings"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:id="@+id/person"/>
+>
+
+    <item
+            android:id="@+id/home"
+            android:height="60dp"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home"/>
+
+    <item
+            android:id="@+id/stores"
+            android:height="60dp"
+            android:icon="@drawable/baseline_store_mall_directory"
+            android:title="Stores"/>
+
+    <item
+            android:id="@+id/upload"
+            android:height="80dp"
+            android:icon="@drawable/baseline_add_circle_outline"
+            android:title="Upload"/>
+
+    <item
+            android:id="@+id/history"
+            android:height="60dp"
+            android:icon="@drawable/baseline_compare_arrows"
+            android:title="History"/>
+
+
+        <item android:title="Profile"
+              android:height="60dp"
+              android:id="@+id/profile"
+              android:icon="@drawable/baseline_person_outline"/>
+
 </menu>

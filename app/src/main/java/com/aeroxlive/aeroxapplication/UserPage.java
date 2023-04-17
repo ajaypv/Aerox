@@ -37,9 +37,7 @@ public class UserPage extends AppCompatActivity {
 
 // ...
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        profilePic = findViewById(R.id.profilepic);
-        profileName = findViewById(R.id.userName);
-        submit = findViewById(R.id.submitprofile);
+
         mDatabase.child("Users").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -52,8 +50,7 @@ public class UserPage extends AppCompatActivity {
                     Log.d("firebaseoomm", String.valueOf(task.getResult().getValue()));
                     String ds =  task.getResult().child("profilepic").getValue(String.class);
                     String name =  task.getResult().child("profilename").getValue(String.class);
-                            Picasso.get().load(ds).into(profilePic);
-                    profileName.setText(name);
+
 
 
 //                    String passwordUser = ds.child("LoginPassword").getValue(String.class);
@@ -65,14 +62,7 @@ public class UserPage extends AppCompatActivity {
 
 
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                startActivity(new Intent(getApplicationContext(), Login.class));
 
-            }
-        });
     }
 
 }

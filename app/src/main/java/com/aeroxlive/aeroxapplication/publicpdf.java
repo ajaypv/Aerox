@@ -67,6 +67,12 @@ public class publicpdf extends Fragment {
                         list.get(position).getNumberPages());
 
             }
+
+            @Override
+            public void onPdfDelete(int position) {
+
+
+            }
         });
 
 
@@ -75,10 +81,11 @@ public class publicpdf extends Fragment {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     PdfModel pdfModel = dataSnapshot.getValue(PdfModel.class);
-                    list.add(pdfModel);
+
                 }
 //                }catch (Exception e){
 //                    Toast.makeText(getApplicationContext(),"Error while get Data from server",Toast.LENGTH_LONG).show();
@@ -104,7 +111,7 @@ public class publicpdf extends Fragment {
             Toast.makeText(getActivity(),
                     "pdf sent", Toast.LENGTH_LONG).show();
             FirebaseUser user = mAuth.getCurrentUser();
-            Intent pdf = new Intent(getActivity(),PaymentPage.class);
+            Intent pdf = new Intent(getActivity(),PdfOptions.class);
             pdf.putExtra("userUid", user.getUid());
             pdf.putExtra("pdfName",pdfName);
             pdf.putExtra("pdfLink", url);
@@ -156,9 +163,11 @@ public class publicpdf extends Fragment {
     }
 
     private void ShowToast(String pdfName,String url){
-        Intent intent = new Intent(getActivity(), PdfPrint.class);
+        Intent intent = new Intent(getActivity(), PdfView.class);
         intent.putExtra("name_key", pdfName);
         intent.putExtra("url_key",url);
+
+
         startActivity(intent);
 
     }
